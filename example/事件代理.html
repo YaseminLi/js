@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div  id='parent'>
+        <p id="jihuo">激活</p>
+        <a id="p2">取消</a>
+        <a id="p3">取消</a>
+        <a id="p4">取消</a>
+    </div>
+</body>
+<script>
+    // let parent = document.getElementById('parent')
+    let child=document.getElementById("jihuo")
+    console.log(child);
+    
+    // bindEvent(parent, 'click',(e) => {
+    //     //过滤掉不在a标签上的点击
+    //     console.log(e.target.nodeName[0]);
+    //     //阻止点击跳转行为
+    //     e.preventDefault()
+    //     if(e.target.nodeName[0]==="A"){
+    //         console.log('取消')
+    //     }
+        
+    // })
+    bindEvent(child, 'click',(e) => {
+        // e.stopPropagation()
+        console.log('激活')
+    })
+    function bindEvent(element, event,fn) {
+        element.addEventListener(event, fn)
+    }
+</script>
+
+</html>
