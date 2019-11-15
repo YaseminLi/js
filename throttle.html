@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #count {
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='count' style="font-size: 50px;">1</div>
+</body>
+<script>
+    let el = document.getElementById('count')
+    let count = 1
+    const delay = 1000
+    function throttle(fn, delay) {
+        let previous = 0
+        return function () {
+            let now = Date.now()
+
+            if (now - previous > delay) {
+                fn()
+                previous = now
+            }
+        }
+    }
+
+    function add() {
+        el.innerHTML = ++count
+        console.log(count);
+    }
+    el.onmouseover = throttle(add, delay)
+</script>
+
+</html>

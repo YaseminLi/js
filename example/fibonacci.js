@@ -24,5 +24,4 @@ function fibonacci(n) {
 for (let i = 0; i < 11; i++) {
     console.log(fibonacci(i))
 }
-// console.log(fibonacci(5))
-console.log(count);
+console.log(count); //9次
