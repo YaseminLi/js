@@ -19,18 +19,29 @@
 // e.y.z= 22;
 // console.log(f);//{ x: 1, y: { z: 22 } }
 
-const x = {
-    a: function() {
-      console.log('aaa')
-    },
-    b: NaN,
-  }
+// const x = {
+//     a: function() {
+//       console.log('aaa')
+//     },
+//     b: NaN,
+//   }
   
-  const y = JSON.parse(JSON.stringify(x));
-  x.a=function () {
-    console.log('bbb');
+//   const y = JSON.parse(JSON.stringify(x));
+//   x.a=function () {
+//     console.log('bbb');
+//   }
+//   console.log(y);//{ b: null }函数不能克隆会出错
+
+//自己实现深克隆
+//deepclone:传入原对象，返回新对象
+
+function deepclone(oldObj) {
+  const isType=function (oldObj) {
+    let type=Object.prototype.toString(oldObj)
+    return type
   }
-  console.log(y);//{ b: null }
+  return newObj
+}
   
   
 
