@@ -1,7 +1,7 @@
 //模拟new
 //new 的作用
 //1.创建一个新的对象
-//2.新对象可以访问 oldObj和oldObj原型对象上的属性
+//2.新对象可以访问 oldObj和oldObj原型对象上的属性(this的指向 __proto和prototype的🔗)
 //4.返回新的对象
 
 function Person(name,age) {
