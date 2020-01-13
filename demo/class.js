@@ -44,17 +44,17 @@ class Student extends People{
     }
     introduce(){
         console.log(super.sayHi()+`   I'm a ${this.grade} student`)
-        console.log(super.name)
+        console.log(super.name)//undefined
         console.log(super.nationality) //China
     }
     sing(){
-        super.sing()
+        super.sing() //instance: I'm singing
     }
     static sing(){
-        super.sing()
+        super.sing() //static: I'm singing
     }
 }
 let chenmei=new Student('chenmei','senior')
 chenmei.introduce() //My name is chenmei   I'm a senior student
-chenmei.sing()
-Student.sing()
+chenmei.sing() 
+Student.sing() 
