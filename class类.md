@@ -118,7 +118,7 @@ B.m() // 3
 ```		
 		
 ##  原型链图    
-![原型链图]('/image/class-原型链图.png')
+<image src="./image/class-原型链图.png">
 
 ## 一些方法
 
