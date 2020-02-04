@@ -8,7 +8,7 @@ this是什么？指代当前属性或方法所在对象,在函数执行时确定
 	}
 	test();//1
 ```	
-	**对于内部函数，即声明在另外一个函数体内的函数，也绑定全局对象，其实应该绑定到其外层函数对应的对象上，这是 JavaScript的缺陷，用that替换。**
+	**对于内部函数，即声明在另外一个函数体内的函数，也绑定全局对象，其实应该绑定到其外层函数对应的对象上，这是 JavaScript的缺陷，用that传递。**
 ```javascript
 	var point = {
     x: 0,
@@ -17,11 +17,11 @@ this是什么？指代当前属性或方法所在对象,在函数执行时确定
     moveTo: function (x, y, z) {
         // 内部函数
         var moveX = function (x) {
-            this.x = x;//this 绑定到了哪里？
+            this.x = x;//this全局对象
         };
         // 内部函数
         var moveY = function (y) {
-            this.y = y;//this 绑定到了哪里？
+            this.y = y;//this 全局对象
         };
         let moveZ = (z) => { this.z = z }//1，绑定到了point上
         moveX(x);
@@ -87,4 +87,31 @@ console.log(z);//undefined
 	obj.m.apply(obj);//1
 	obj.m.apply(bar);//2
 ```	
-### 5.箭头函数可以保留函数创建时的this,而不是函数调用时的this值 (ts imooc 3-19)
+### 5. 箭头函数可以保留函数创建时的this,而不是函数调用时的this值 (ts imooc 3-19)
+```js
+	let x=0;
+	let obj1={
+	    x:1,
+	    say:function () {
+	        setTimeout(() => {
+	            console.log(this.x)
+	        }, 0);
+	    },
+	    hello:function () {
+	        setTimeout(function () {
+	            console.log(this)
+	        });
+	    }
+	}
+	obj1.say()//1
+	obj1.hello()//Timeout
+	 
+	let obj2={
+	    x:2
+	}
+	obj1.say.call(obj2) //2
+	obj1.hello.call(obj2) //Timeout
+```	
+
+
+- 参考：[this 的值到底是什么？一次说清楚](https://zhuanlan.zhihu.com/p/23804247)
