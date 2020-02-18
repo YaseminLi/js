@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="text" />
+</body>
+<script>
+    let el = document.getElementById('text')
+    // let timer = null
+    // el.addEventListener('keyup', function () {
+    //     if(timer){
+    //         clearTimeout(timer)//终止之前的setTimeout的执行
+    //     }
+    //     timer = setTimeout(() => {
+    //         console.log(el.value);
+    //     }, 1000)
+    // })
+
+    //debouce函数封装
+    let delay = 1000
+    function debounce(delay, fn) {
+        let timer = null
+        return function () {
+            if (timer) {
+                clearTimeout(timer)//终止之前的setTimeout的执行
+            }
+            timer = setTimeout(()=>{
+                console.log(this)
+                fn()
+                timer = null
+            }, 1000)
+        }
+    }
+
+    el.addEventListener('keyup', debounce(delay, function () {
+        console.log(el.value)
+    }))
+
+    // let timer = null
+
+    // function debounce(delay, fn) {
+    //     if (timer) {
+    //         clearTimeout(timer)
+    //     }
+    //     timer = setTimeout(() => {
+    //         fn()
+    //     }, delay)
+    // }
+    // // el.addEventListener('keyup', debounce(delay, function () {
+    // //     console.log(el.value)
+    // // }))
+    // el.addEventListener('keyup', function () {
+    //     console.log(el.value)
+    // })
+</script>
+
+</html>

@@ -36,10 +36,12 @@ function extend(child, parent) {
 //继承分两部分：copy实例属性+延长原型链
 function extend1(child, parent) {
     function extendStatics(child, parent) {
+        //for……in 遍历可枚举属性，包括自身和原型链上的
         for (let key in parent) {
-            console.log(key);
-
-            child[key] = parent[key]
+            //hasOwnProperty 自身是否有这个属性
+            if(parent.hasOwnproperty(key)){
+                child[key] = parent[key]
+            }
         }
     }
     function extendPrototype(child, parent) {
