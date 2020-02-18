@@ -12,5 +12,10 @@ async function asyncPrint(value, ms) {
 
 asyncPrint('hello world', 1000).then((value) => {
     console.log(value);
-
 })
+
+function print(value, ms) {
+    timeout(ms);
+    console.log(value);
+    return value + '!!!'
+}
